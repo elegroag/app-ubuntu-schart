@@ -21,16 +21,17 @@ namespace BackFacture.app
             string msj = "";
             try
             {
-                var query = @"SELECT * FROM usuarios";
+                var query = @"SELECT id, nombres, apellidos, cedula FROM usuarios";
                 using var command = new SqliteCommand(query, connection);
 
                 using var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     var id = reader.GetInt32(0);
-                    var nombre = reader.GetString(1);
-                    var edad = reader.GetInt32(2);
-                    msj = $"ID: {id}, Nombre: {nombre}, Edad: {edad}";
+                    var nombres = reader.GetString(1);
+                    var apellidos = reader.GetString(2);
+                    var cedula = reader.GetInt64(3);
+                    msj = $"ID: {id}, Nombre: {nombres} {apellidos}, Cedula: {cedula}";
                 }
                 connection.Close();
             }
