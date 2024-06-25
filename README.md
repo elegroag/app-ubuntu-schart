@@ -31,4 +31,8 @@
     dotnet add package Newtonsoft.Json
     dotnet build
     dotnet /home/elegro/projects/cshart/BackFacture/bin/Debug/net6.0/BackFacture.dll BackFacture.MiClaseEjemplo MiMetodoJson "{\"Nombre\":\"Juan\",\"Edad\":30}" 450 development
+
+
+    dotnet run app.MiClaseEjemplo MiMetodoJson "{\"Nombre\":\"Juan\",\"Edad\":30}" 450 true
+    dotnet run app.UsuariosController PruebaConnection "{\"Nombre\":\"Juan\",\"Edad\":30}" 450
 ```

@@ -2,13 +2,14 @@
 using System;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
+using BackFacture.app;
 
 namespace BackFacture
 {
 
     /**
     * Program class
-    * @command dotnet run BackFacture.MiClaseEjemplo MiMetodoJson "{\"Nombre\":\"Juan\",\"Edad\":30}" 450 development true
+    * @command dotnet run MiClaseEjemplo MiMetodoJson "{\"Nombre\":\"Juan\",\"Edad\":30}" 450 true
     */
     class Program
     {
@@ -16,16 +17,17 @@ namespace BackFacture
         {
             if (args.Length < 4)
             {
-                Console.WriteLine("Uso: MiAplicacionConsola <clase> <metodo> <dataJson> <enviroment>");
+                Console.WriteLine(@"Uso: BackFacture <clase> <metodo> <dataJson> <enviroment>");
                 return;
             }
 
-            string clase = args[0];
+            string clase = "BackFacture." + args[0];
             string metodo = args[1];
             string dataJson = args[2];
+
+            Config.Init();
             Config.User = args[3];
-            Config.Enviroment = args[4];
-            Config.Verbose = (args.Length == 6) && (args[5] == "true");
+            Config.Verbose = (args.Length >= 5) && (args[4] == "true");
 
             if (Config.Verbose)
             {
@@ -76,7 +78,7 @@ namespace BackFacture
                 var response = method.Invoke(classInstance, new object[] { data }) as Response;
                 if (response != null)
                 {
-                    Console.WriteLine("\r"+response.ToJson());
+                    Console.WriteLine("\r" + response.ToJson());
                 }
                 else
                 {

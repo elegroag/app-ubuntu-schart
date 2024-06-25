@@ -3,7 +3,7 @@ using System;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
 
-namespace BackFacture
+namespace BackFacture.app
 {
     public class MiClaseEjemplo
     {
@@ -15,7 +15,7 @@ namespace BackFacture
         public Response MiMetodoJson(JObject data)
         {
             string mensaje = $"Método ejecutado por: {Config.User} y entorno: {Config.Enviroment}";
-            
+
             if (Config.Verbose)
             {
                 // Procesar los datos y generar la respuesta

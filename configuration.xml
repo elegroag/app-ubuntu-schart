@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <dbpath>/home/elegro/projects/schart/BackFacture/datadb.db</dbpath>
+  <pathlog>/home/elegro/projects/schart/BackFacture/log.txt/</pathlog>
+  <enviroment>development</enviroment>
+  <verbose>true</verbose>
+</configuration>
